@@ -37,10 +37,12 @@ packageJson = {
   license: 'MIT',
   files: [esPrefix, cjsPrefix, 'LICENSE', 'README.md'],
   exports: {
-    import: `./${esPrefix}/index.js`,
-    default: `./${esPrefix}/index.js`,
-    require: `./${cjsPrefix}/index.js`,
-    types: `./${dtsPrefix}/index.d.ts`,
+    '.': {
+      import: `./${esPrefix}/index.js`,
+      default: `./${esPrefix}/index.js`,
+      require: `./${cjsPrefix}/index.js`,
+      types: `./${dtsPrefix}/index.d.ts`,
+    },
   },
   keywords: [
     'element-inline-style',

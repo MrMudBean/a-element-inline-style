@@ -37,9 +37,12 @@ export function removeStyle(
   );
 }
 
-/**********************
- * 获取原有的行内样式
- ***********************/
+/**
+ * ## 获取原有的行内样式
+ *
+ * @param node  节点元素
+ * @returns 元素的行内样式
+ */
 function getOldStyle(node: HTMLElement | HTMLInputElement) {
   const oldStyle = (node.getAttribute('style') ?? '')
     .replace(/(;{2,})/gm, ';') // 去除多余的 `;`
@@ -67,14 +70,15 @@ function getOldStyle(node: HTMLElement | HTMLInputElement) {
   return oldStyle;
 }
 
-/*************************
- * 将对象的样式转化为 string
+/**
+ * ## 将对象的样式转化为 string
  *
  * 方便赋值
  * @param style              待转化的样式，对象形式方便处理，字符串形式方便赋值
  * @param removeProperty     待移除的属性，是一个字符串数组
  * @returns 返回一个行内样式
- *************************/
+ *
+ */
 function transformStyle(style: object, removeProperty?: string[]) {
   return Object.keys(style).reduce((previousValue, _c) => {
     // 移除属性
@@ -85,11 +89,12 @@ function transformStyle(style: object, removeProperty?: string[]) {
   }, '');
 }
 
-/**************************
- * 连字符形式转大写
+/**
+ * ## 连字符形式转大写
  *
  * @param property   待转化的属性字符串
- **************************/
+ * @returns
+ */
 function hyphenToCapitalization(property: string) {
   return property.startsWith('--')
     ? property
@@ -98,10 +103,12 @@ function hyphenToCapitalization(property: string) {
       );
 }
 
-/**************************
- * 大些转连字符
+/**
+ * ## 大写转连字符
+ *
  * @param property 待转化为连字符形式的字符串
- **************************/
+ * @returns 转换后de
+ */
 function capitalizationToHyphen(property: string) {
   return property.startsWith('--')
     ? property
